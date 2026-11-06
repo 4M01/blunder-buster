@@ -501,11 +501,12 @@
   }
 
   // Count active minutes (tab visible and touched in the last minute).
-  let lastInput = Date.now(), ticks = 0;
+  let lastInput = Date.now(), ticks = 0, activeAcc = 0;
   ['pointerdown', 'keydown'].forEach((ev) => window.addEventListener(ev, () => { lastInput = Date.now(); }, { passive: true }));
   setInterval(() => {
     if (document.hidden || Date.now() - lastInput > 60000) return;
     const k = today(); S.time[k] = (S.time[k] || 0) + 10;
+    activeAcc += 10; if (activeAcc >= 60) { activeAcc = 0; if (BB.heartbeat) BB.heartbeat(); }
     if (++ticks % 3 === 0) save();
   }, 10000);
 

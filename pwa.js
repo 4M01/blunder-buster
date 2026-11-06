@@ -8,19 +8,21 @@
   let deferred = null;
   const hidden = () => { try { return localStorage.getItem('bb.pwaHide') === '1'; } catch (e) { return false; } };
 
-  // Anonymous visit counting (GoatCounter: no cookies, no IP storage, country-level only).
-  // Skipped on localhost / file://, when the browser sends Do Not Track, or when switched off in the Parent area.
-  const statsOff = () => { try { return localStorage.getItem('bb.noStats') === '1'; } catch (e) { return false; } };
+  // Anonymous usage counting (GoatCounter: no cookies, no IP storage, country-level only).
+  // Counts visits plus one "active-minute" event per minute someone is really using the app.
+  // Skipped on localhost / file:// and when the browser sends Do Not Track.
   const dnt = navigator.doNotTrack === '1' || window.doNotTrack === '1';
   const localHost = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-  if (isHttp && !localHost && !dnt && !statsOff()) {
+  if (isHttp && !localHost && !dnt) {
     const gc = document.createElement('script');
     gc.async = true;
     gc.src = 'https://gc.zgo.at/count.js';
     gc.setAttribute('data-goatcounter', 'https://blunder-buster.goatcounter.com/count');
     document.head.appendChild(gc);
   }
-  BB.statsOff = statsOff;
+  BB.heartbeat = () => {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'active-minute', title: 'Active minute', event: true }); } catch (e) { /* ignore */ }
+  };
 
   // Offline support (needs https or localhost; does nothing when opened as a plain file)
   if (isHttp && 'serviceWorker' in navigator) {
