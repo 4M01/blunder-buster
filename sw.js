@@ -1,6 +1,6 @@
 /* Blunder Buster service worker: makes the app work fully offline.
    Bump VERSION whenever any file changes so installed copies refresh. */
-const VERSION = 'bb-v3';
+const VERSION = 'bb-v4';
 const ASSETS = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
   'engine.js', 'app.js', 'play.js', 'pgn.js', 'vault.js', 'dashboard.js', 'pwa.js',

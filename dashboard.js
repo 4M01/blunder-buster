@@ -111,6 +111,8 @@
         <div class="controls mt"><button class="ghost" data-act="pprint">🖨 Print / save as PDF</button><button class="ghost" data-act="pexport">⬇ Back up progress</button>
           <label class="ghost" style="cursor:pointer">⬆ Restore backup<input type="file" id="pfile" accept="application/json,.json" style="display:none"></label>
           <button class="ghost" data-act="reset">Reset everything</button></div>
+        <div class="controls mt" style="align-items:center"><button class="chipbtn ${localStorage.getItem('bb.noStats') === '1' ? '' : 'on'}" data-act="pstats">${localStorage.getItem('bb.noStats') === '1' ? 'Visit counting: OFF' : 'Visit counting: ON'}</button>
+          <span style="color:var(--muted);font-size:.9rem">Counts anonymous visits (country only, no cookies, nothing about his games). Applies to this device from the next reload.</span></div>
         <div id="pmsg" style="margin-top:8px;color:var(--muted)">Progress lives in this browser only. Back it up now and then, especially before clearing browser data.</div>
       </div>
       <div class="center mt noprint"><button class="ghost" data-act="home">⬅ Home</button></div>`;
@@ -119,6 +121,7 @@
   }
   const rankLine = (s) => `${BB.rankOf(s.xp).e} ${BB.rankOf(s.xp).name} · ${s.xp} XP`;
 
+  H.pstats = () => { try { localStorage.setItem('bb.noStats', localStorage.getItem('bb.noStats') === '1' ? '0' : '1'); } catch (e) { /* ignore */ } dashboard(); };
   H.padv = () => { BB.setAdvanced(!S().advanced); dashboard(); };
   H.pgoal = (t) => { S().goalMin = +t.dataset.v; BB.save(); dashboard(); };
   H.pprint = () => window.print();
