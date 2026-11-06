@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5b4bdb">
+  <meta name="description" content="Blunder Buster: chess training that teaches you to check the board before every move.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Blunder Buster">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Blunder Buster</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="top">
+    <button class="brand" id="homeBtn" aria-label="Home">🐴 <span>Blunder Buster</span></button>
+    <div class="xpwrap" id="xpwrap"></div>
+    <button class="icon" id="soundBtn" aria-label="Toggle sound">🔊</button>
+  </header>
+  <main id="app"></main>
+  <div id="toast" role="status"></div>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+  <script src="play.js"></script>
+  <script src="pgn.js"></script>
+  <script src="vault.js"></script>
+  <script src="dashboard.js"></script>
+  <script src="pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "id": ".",
+  "name": "Blunder Buster",
+  "short_name": "Blunder Buster",
+  "description": "Chess training that teaches you to check the board before every move. Works offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#dff1ff",
+  "theme_color": "#5b4bdb",
+  "categories": ["education", "games"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
