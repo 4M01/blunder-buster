@@ -22,6 +22,7 @@
   }
   BB.heartbeat = () => {
     try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'active-minute', title: 'Active minute', event: true }); } catch (e) { /* ignore */ }
+    try { if (window.posthog && window.posthog.capture) window.posthog.capture('active_minute'); } catch (e) { /* ignore */ }
   };
 
   // Offline support (needs https or localhost; does nothing when opened as a plain file)

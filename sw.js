@@ -1,9 +1,9 @@
 /* Blunder Buster service worker: makes the app work fully offline.
    Bump VERSION whenever any file changes so installed copies refresh. */
-const VERSION = 'bb-v5';
+const VERSION = 'bb-v6';
 const ASSETS = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
-  'engine.js', 'app.js', 'play.js', 'pgn.js', 'vault.js', 'dashboard.js', 'pwa.js',
+  'engine.js', 'app.js', 'play.js', 'pgn.js', 'vault.js', 'dashboard.js', 'pwa.js', 'analytics.js',
   'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png', 'icons/apple-touch-icon.png',
 ];
 
