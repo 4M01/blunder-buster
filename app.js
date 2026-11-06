@@ -10,9 +10,9 @@
   const QUEST_LEN = 8;
   const QUEST_MODES = ['spot', 'trade', 'safe', 'pick', 'spot', 'safe', 'trade', 'pick'];
   const RANKS = [
-    { name: 'Pawn Scout', at: 0, e: '♟️' }, { name: 'Knight Guardian', at: 150, e: '🐴' },
-    { name: 'Bishop Sentinel', at: 400, e: '⛪' }, { name: 'Rook Fortress', at: 800, e: '🏰' },
-    { name: 'Queen Guardian', at: 1500, e: '👑' },
+    { name: 'Pawn Scout', at: 0, e: '♟︎' }, { name: 'Knight Guardian', at: 150, e: '♞︎' },
+    { name: 'Bishop Sentinel', at: 400, e: '♝︎' }, { name: 'Rook Fortress', at: 800, e: '♜︎' },
+    { name: 'Queen Guardian', at: 1500, e: '♛︎' },
   ];
   const MODES = {
     spot: { icon: '🔍', title: 'Spot the Danger', blurb: 'Find the pieces that could be captured for free. Train your eyes!' },
@@ -124,7 +124,7 @@
   };
   const rnd = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const MSG = {
-    ok: ['Brilliant! Nothing gets past you! 🌟', 'Knight-ly good work! 🐴', 'That is the Guardian spirit! 🛡️', 'Sharp eyes! Keep it going! 🔥', 'Yes! You looked at the whole board! 👏'],
+    ok: ['Brilliant! Nothing gets past you! 🌟', 'Rook-solid work! ♜︎', 'That is the Guardian spirit! 🛡️', 'Sharp eyes! Keep it going! 🔥', 'Yes! You looked at the whole board! 👏'],
     no: ['Close! Let us see what we missed.', 'Every master blunders first. Learn from it! 💪', 'Good try! Check the lesson below.', 'Oops! That is how we get stronger.', 'Ah, tricky one! Look at the colours on the board.'],
     hello: ['Before every move: LOOK, ASK, CHECK!', 'Ready to become a Guardian?', 'Remember: your opponent moves too!'],
   };
@@ -202,7 +202,7 @@
       : `<button class="big green" data-act="quest">${q.idx ? 'Continue' : 'Start'} Daily Quest ▶</button>`;
     app.innerHTML = `
       <div class="hero">
-        <div class="card"><div class="mascot-row"><div class="mascot">🐴</div>
+        <div class="card"><div class="mascot-row"><div class="mascot">♜︎</div>
           <div class="bubble">Hi! I am <b>Sir Blunder-Not</b>. I will help you stop giving pieces away and start winning them! ${rnd(MSG.hello)}
             <div class="chips"><span class="chip">1 · LOOK at what they did</span><span class="chip">2 · ASK what they want</span><span class="chip">3 · CHECK your move is safe</span></div>
           </div></div></div>
@@ -271,7 +271,7 @@
       <div class="game">
         <div class="boardcol"><div id="boardWrap"></div><div class="legend" id="legend"></div></div>
         <div class="panel">
-          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">🐴</div><div class="bubble" id="bubble">LOOK · ASK · CHECK</div></div></div>
+          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">♜︎</div><div class="bubble" id="bubble">LOOK · ASK · CHECK</div></div></div>
           <div class="qhead"><span>${m.icon} ${m.title}</span><span>${qhead}</span><span>🔥 ${S.row} in a row</span></div>
           <div class="question card" id="question"></div>
           <div class="controls" id="controls"></div>

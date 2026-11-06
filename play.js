@@ -31,7 +31,7 @@
     BB.setIdle(); clearTimers(); P = null; R = null;
     const s = S();
     app.innerHTML = `
-      <div class="card"><div class="mascot-row"><div class="mascot">🐴</div><div class="bubble">Time for a real game! You play <b>White</b>. Before each move the <b>Safety Gate</b> stops you for a moment. That is where champions are made. 🛡️</div></div></div>
+      <div class="card"><div class="mascot-row"><div class="mascot">♜︎</div><div class="bubble">Time for a real game! You play <b>White</b>. Before each move the <b>Safety Gate</b> stops you for a moment. That is where champions are made. 🛡️</div></div></div>
       <h2 class="mt">1 · Pick your opponent</h2>
       <div class="grid2">${Object.keys(BOTS).map((k) => `<button class="lvl ${s.botLevel === k ? 'on' : ''}" data-act="pickbot" data-v="${k}"><div class="ico">${BOTS[k].e}</div><h3>${BOTS[k].name}</h3><div style="color:var(--muted)">${BOTS[k].d}</div></button>`).join('')}</div>
       <h2 class="mt">2 · Safety Gate</h2>
@@ -74,7 +74,7 @@
       <div class="game">
         <div class="boardcol"><div id="boardWrap"></div><div class="legend" id="legend"></div></div>
         <div class="panel">
-          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">🐴</div><div class="bubble" id="bubble"></div></div></div>
+          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">♜︎</div><div class="bubble" id="bubble"></div></div></div>
           <div class="qhead"><span>${BOTS[P.bot].e} vs ${BOTS[P.bot].name}</span><span>🚪 Gate ${GATES[P.gateLevel].k}</span><span id="mat"></span></div>
           <div class="status" id="status"></div>
           <div id="gate"></div>
@@ -320,7 +320,7 @@
     const title = res === 'win' ? '🏆 You won!' : res === 'draw' ? '🤝 Draw' : '💔 You lost this one';
     const worst = P.moments.length;
     app.innerHTML = `
-      <div class="card center"><div class="mascot" style="margin:auto">${res === 'win' ? '🏆' : res === 'draw' ? '🤝' : '🐴'}</div>
+      <div class="card center"><div class="mascot" style="margin:auto">${res === 'win' ? '🏆' : res === 'draw' ? '🤝' : '♜︎'}</div>
         <h1>${title}</h1><div style="color:var(--muted)">by ${why} · ${moves} moves · vs ${BOTS[P.bot].name}</div>
         <div class="grid2 mt" style="text-align:left">
           <div class="card"><h3>Blunders</h3><div style="font-size:2rem;font-weight:800;color:${P.blunders ? 'var(--warn)' : 'var(--good)'}">${P.blunders}</div><div>${P.blunders ? 'Moves that let the bot win material.' : 'Zero! Great safety checking!'}</div></div>

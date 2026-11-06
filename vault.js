@@ -43,7 +43,7 @@
       <div class="game">
         <div class="boardcol"><div id="boardWrap"></div></div>
         <div class="panel">
-          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">${o.icon || '🐴'}</div><div class="bubble" id="bubble">${o.say || ''}</div></div></div>
+          <div class="card"><div class="mascot-row"><div class="mascot" id="mascot">${o.icon || '♜︎'}</div><div class="bubble" id="bubble">${o.say || ''}</div></div></div>
           <div class="qhead"><span>${o.title}</span><span>${o.progress || ''}</span></div>
           <div class="question card">${o.question}</div>
           ${o.explain ? `<div class="explain">${o.explain}</div>` : ''}
